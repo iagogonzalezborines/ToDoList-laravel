@@ -1025,9 +1025,9 @@
                 <form action="{{ route('toggleCompleted', ['id' => $listItem->id]) }}" method="post" accept-charset="UTF-8">
                     {{ csrf_field() }}
                     @if($listItem->is_complete)
-                    <button type="submit" name="action" value="unmark" style="background-color: #4caf50; margin-left: 20px; color: white;">UnmarkComplete</button>
+                    <button type="submit" name="action" value="unmark" style="background-color: #4caf50; margin-left: 20px; color: white;">Completed</button>
                     @else
-                    <button type="submit" name="action" value="mark" style="background-color: #EF245E; margin-left: 20px; color: white;">MarkComplete</button>
+                    <button type="submit" name="action" value="mark" style="background-color: #EF245E; margin-left: 20px; color: white;">Complete</button>
                     @endif
                 </form>
                 <form action="{{ route('deleteItem', ['id' => $listItem->id]) }}" method="post" accept-charset="UTF-8">
