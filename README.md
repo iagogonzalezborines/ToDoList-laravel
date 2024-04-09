@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-### ToDo List
+# ToDo List
 
 This Todo List Laravel application was created for the sole purpose of learning the Laravel framework. It serves as a simple yet functional application for managing your daily tasks.
 
