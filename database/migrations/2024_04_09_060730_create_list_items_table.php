@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('list_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('is_complete')->default(false);
+            $table->boolean('is_complete');
             $table->timestamps();
         });
     }

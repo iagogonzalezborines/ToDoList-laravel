@@ -40,10 +40,91 @@
             -webkit-tap-highlight-color: transparent
         }
 
+        /* Container for todo list */
+
+        .add-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 80%;
+            margin-left: 83px;
+        }
+
+        .todo-list-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Todo list item */
+        .todo-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        /* Todo item text */
+        .todo-item-text {
+            flex-grow: 1;
+            font-size: 16px;
+        }
+
+        /* Button to mark item as completed */
+        .complete-button {
+            padding: 6px 12px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .complete-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Form for adding new todo item */
+        .todo-form {
+            margin-top: 20px;
+        }
+
+        .todo-form input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #cccccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .todo-form button {
+            padding: 8px 16px;
+            background-color: burlywood;
+            color: #ffffff;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .todo-form button:hover {
+            background-color: #eab676;
+        }
+
+
         body {
             margin: 0;
             line-height: inherit;
-            background-color: #152238;
+            background-color: #343332;
         }
 
         hr {
@@ -57,7 +138,13 @@
             text-decoration: underline dotted
         }
 
-        h1,
+        h1 {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            color: #fff;
+            margin-left: 30px;
+        }
+
         h2,
         h3,
         h4,
@@ -114,7 +201,7 @@
             border-collapse: collapse
         }
 
-        button{
+        button {
             background-color: #fff;
             color: #fff;
             border: 1px solid #fff;
@@ -122,6 +209,7 @@
             border-radius: 0.375rem;
             cursor: pointer;
         }
+
         input,
         optgroup,
         select,
@@ -138,6 +226,14 @@
         }
 
         button,
+
+        .submit {
+            background-color: #fff;
+            color: gray;
+            border: 1px solid #fff;
+            padding: 0.5rem 1rem;
+        }
+
         select {
             text-transform: none
         }
@@ -913,14 +1009,39 @@
 
 <body class="font-sans antialiased dark:bg-black dark:text-white/50">
     <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-       <form method="post" action="{{ route('saveItem') }}" accept-charset="UTF-8" > 
-        {{ csrf_field() }}
-        <h1>TodoList</h1>
-        <label for="listItem"></label> <br>
-        <input type="text" name="ListItem">
-        <input type="submit">Save Item</input>
+        <form class="todo-form" method="post" action="{{ route('saveItem') }}" accept-charset="UTF-8">
+            {{ csrf_field() }}
+            <h1>todo list</h1>
+            <div class="add-container">
+                <label for="listItem"></label> <br>
+                <input type="text" name="listItem">
+                <button class="submit" type="submit">Add</button>
+            </div>
         </form>
+        <div class="todo-list-container">
+            @foreach($listItems as $listItem)
+            <div class="todo-item">
+                <p style="color: black;">{{ $listItem->name }}</p>
+                <form action="{{ route('toggleCompleted', ['id' => $listItem->id]) }}" method="post" accept-charset="UTF-8">
+                    {{ csrf_field() }}
+                    @if($listItem->is_complete)
+                    <button type="submit" name="action" value="unmark" style="background-color: #4caf50; margin-left: 20px; color: white;">UnmarkComplete</button>
+                    @else
+                    <button type="submit" name="action" value="mark" style="background-color: #EF245E; margin-left: 20px; color: white;">MarkComplete</button>
+                    @endif
+                </form>
+                <form action="{{ route('deleteItem', ['id' => $listItem->id]) }}" method="post" accept-charset="UTF-8">
+                    {{ csrf_field() }}
+                    <button type="submit" name="action" value="delete" style="background-color: #EF245E; margin-left: 20px; color: white;">Delete</button>
+                </form>
+            </div>
+            @endforeach
+
+
+        </div>
+
     </div>
+
 </body>
 
 </html>

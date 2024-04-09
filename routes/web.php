@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TodoListController::class, 'index'] );
 
 
-Route::post('/saveItemRoute', [TodoListController::class, 'saveItem'] )->name('saveItem');
+Route::post('/SaveItemRoute', [TodoListController::class, 'saveItem'] )->name('saveItem');
+
+Route::post('/ToggleCompletedRoute/{id}', [TodoListController::class, 'toggleCompleted'] )->name('toggleCompleted');
+
+Route::post('/deleteItemRoute/{id}', [TodoListController::class, 'deleteItem'] )->name('deleteItem');
