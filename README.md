@@ -21,15 +21,16 @@ ________________________________________
 
 ### Development Server:
 
-##### Laravel:
+#### Laravel:
 You can use Laravel's built-in development server to host the application locally. After installing the dependencies and configuring the environment, run the following command:
 
-bash
-´´´php artisan serve´´´
+```bash
+php artisan serve
+```
 
 This command will start a development server at http://localhost:8000, allowing you to access the Todo List application in your web browser.
 
-##### Laragon:
+#### Laragon:
 
 For database hosting, this application utilizes Laragon, a lightweight and powerful local development environment for web developers. The database for this application is named "testing". Laragon comes pre-configured with MySQL and Apache, providing a seamless environment for Laravel development.
 
@@ -38,13 +39,13 @@ For database hosting, this application utilizes Laragon, a lightweight and power
 
 With Laragon installed and running, you can access your Todo List application using the configured Laragon URL or localhost.
 
-##### Homestead / Valet:
+#### Homestead / Valet:
 
 Alternatively, you can use Laravel Homestead or Laravel Valet for local development. Homestead provides a pre-packaged Vagrant box with all the tools you need for Laravel development, while Valet offers a lightweight development environment specifically designed for macOS users.
 
-    Homestead: Follow the Homestead documentation to set up a virtual machine for your Laravel application.
+- Homestead: Follow the Homestead documentation to set up a virtual machine for your Laravel application.
 
-    Valet: Follow the Valet documentation to install and configure Laravel Valet on your macOS machine.
+- Valet: Follow the Valet documentation to install and configure Laravel Valet on your macOS machine.
 
 Once set up, you can access your Todo List application using the configured domain name or localhost.
 ________________________________________
