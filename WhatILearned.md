@@ -44,7 +44,7 @@ In the above example, we define three routes:
     A GET route for the /about URL that maps to the index method of the AboutController.
     A POST route for the /contact URL that maps to the store method of the ContactController.
 
-The app.php file you mentioned is typically located in the config directory (config/app.php). This file contains application-level configuration options for your Laravel application, including settings related to logging, debugging, timezone, encryption, service providers, etc. It's an important configuration file, but it doesn't directly relate to routing.
+The app.php file is typically located in the config directory (config/app.php). This file contains application-level configuration options for your Laravel application, including settings related to logging, debugging, timezone, encryption, service providers, etc. It's an important configuration file, but it doesn't directly relate to routing.
 
 ## Overall: 
 Laravel's well-defined directory structure and intuitive syntax streamline the development process, making it a popular choice for building robust and maintainable web applications.
